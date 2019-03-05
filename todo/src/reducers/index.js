@@ -1,4 +1,4 @@
-import { ADD_TODO } from "../actions/index";
+import { ADD_TODO, TOGGLE_TODO } from "../actions/index";
 
 const initialState = {
   todos: [
@@ -26,6 +26,20 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         todos: [...state.todos, newTodo]
+      };
+
+    case TOGGLE_TODO:
+      return {
+        ...state,
+        todos: state.todos.map(todo => {
+          if (todo.id === action.payload) {
+            return {
+              ...todo,
+              completed: !todo.completed
+            };
+          }
+          return todo;
+        })
       };
     default:
       return state;

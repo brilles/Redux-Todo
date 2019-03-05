@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addTodo } from "../actions/index";
+import { addTodo, toggleTodo } from "../actions";
 
 class TodoList extends React.Component {
   state = {
@@ -17,12 +17,18 @@ class TodoList extends React.Component {
     this.setState({ todo: "" });
   };
 
+  toggleTodo = id => {
+    this.props.toggleTodo(id);
+  };
+
   render() {
     return (
       <>
         <div className="list-wrapper">
           {this.props.todo.map(todo => (
-            <p key={todo.id}>{todo.task}</p>
+            <p key={todo.id} onClick={() => this.toggleTodo(todo.id)}>
+              {todo.task}
+            </p>
           ))}
         </div>
         <input
@@ -44,5 +50,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { addTodo }
+  { addTodo, toggleTodo }
 )(TodoList);
