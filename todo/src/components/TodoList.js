@@ -22,11 +22,18 @@ class TodoList extends React.Component {
   };
 
   render() {
+    const pStyle = {
+      textDecoration: "line-through"
+    };
     return (
       <>
         <div className="list-wrapper">
           {this.props.todo.map(todo => (
-            <p key={todo.id} onClick={() => this.toggleTodo(todo.id)}>
+            <p
+              style={todo.completed ? pStyle : null}
+              key={todo.id}
+              onClick={() => this.toggleTodo(todo.id)}
+            >
               {todo.task}
             </p>
           ))}
