@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addTodo, toggleTodo } from "../actions";
+import { addTodo, toggleTodo, deleteTodo } from "../actions";
 
 class TodoList extends React.Component {
   state = {
@@ -21,12 +21,27 @@ class TodoList extends React.Component {
     this.props.toggleTodo(id);
   };
 
+  deleteTodo = id => {
+    this.props.deleteTodo(id);
+  };
+
   render() {
     const pStyle = {
       textDecoration: "line-through"
     };
     return (
       <>
+        <form>
+          <input
+            type="text"
+            name="todo"
+            value={this.state.todo}
+            onChange={this.handleChanges}
+            placeholder="Add a todo..."
+          />
+          <button onClick={this.addTodo}>Add todo</button>
+        </form>
+
         <div className="list-wrapper">
           {this.props.todo.map(todo => (
             <p
@@ -34,18 +49,11 @@ class TodoList extends React.Component {
               key={todo.id}
               onClick={() => this.toggleTodo(todo.id)}
             >
-              {todo.task}
+              {todo.task}{" "}
+              <span onClick={() => this.deleteTodo(todo.id)}>x</span>
             </p>
           ))}
         </div>
-        <input
-          type="text"
-          name="todo"
-          value={this.state.todo}
-          onChange={this.handleChanges}
-          placeholder="Add a todo..."
-        />
-        <button onClick={this.addTodo}>Add todo</button>
       </>
     );
   }
@@ -57,5 +65,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { addTodo, toggleTodo }
+  { addTodo, toggleTodo, deleteTodo }
 )(TodoList);

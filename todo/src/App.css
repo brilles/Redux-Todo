@@ -1,0 +1,46 @@
+.App {
+  max-width: 500px;
+  background: #053b4d;
+  text-align: center;
+  margin: 20px auto;
+  border-radius: 10px;
+  width: 90%;
+}
+
+.list-wrapper {
+  text-align: left;
+  padding: 15px 35px;
+  line-height: 1.5;
+}
+
+input {
+  border-radius: 20px;
+  border: none;
+  width: 65%;
+  padding: 6px 10px;
+}
+
+input:focus {
+  outline: 0;
+}
+button {
+  padding: 7.5px;
+  margin-left: 5px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: 0;
+}
+
+.list-wrapper > p > span {
+  float: right;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+  background: #fff;
+  padding: 0px 8px;
+  border-radius: 20px;
+}

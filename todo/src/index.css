@@ -127,3 +127,23 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+h1 {
+  font-size: 2rem;
+  padding: 10px;
+  color: white;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  background: #000;
+}
+p {
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 5px;
+  padding: 4px 3px;
+  border-radius: 25px;
+  background: #eabe34;
+}
