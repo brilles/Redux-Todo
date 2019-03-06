@@ -21,8 +21,8 @@ class TodoList extends React.Component {
     this.props.toggleTodo(id);
   };
 
-  deleteTodo = id => {
-    this.props.deleteTodo(id);
+  deleteTodo = (id, completed) => {
+    this.props.deleteTodo(id, completed);
   };
 
   render() {
@@ -50,7 +50,9 @@ class TodoList extends React.Component {
               onClick={() => this.toggleTodo(todo.id)}
             >
               {todo.task}{" "}
-              <span onClick={() => this.deleteTodo(todo.id)}>x</span>
+              <span onClick={() => this.deleteTodo(todo.id, todo.completed)}>
+                x
+              </span>
             </p>
           ))}
         </div>

@@ -147,3 +147,13 @@ p {
   border-radius: 25px;
   background: #eabe34;
 }
+
+button:hover {
+  transform: scale(1.05);
+  transition: 0.15s ease-in-out;
+}
+
+span:hover {
+  transform: scale(1.15);
+  transition: 0.15s ease-in-out;
+}
